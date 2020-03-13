@@ -1,0 +1,16 @@
+name: Build LaTeX
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@b25b38671ce0768ef738640e08df41ae91d912a8
+        with:
+          root_file: main.tex
+          args: -pdf -file-line-error -interaction=nonstopmode --jobname=test_pdf
+      - uses: actions/upload-artifact@v2-preview
+        with:
+          name: document
+          path: ./test_pdf.pdf
