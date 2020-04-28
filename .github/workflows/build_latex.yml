@@ -10,7 +10,7 @@ jobs:
         with:
           root_file: main.tex
           args: -pdf -file-line-error -interaction=nonstopmode --jobname=test_pdf
-      - uses: actions/upload-artifact@v2-preview
+      - uses: actions/upload-artifact@v2
         with:
-          name: document
+          name: document.pdf
           path: ./test_pdf.pdf
